@@ -37,7 +37,7 @@ public class OrderTest extends BaseTest{
         this.orderSuccess = orderSuccess;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Заказ самоката. Тестовые данные: {0} {1} {2} {3} {4} {5} {6} {7} {8} {9}")
     public static Object[][] getOrderData() {
         return new Object[][] {
                 //Тестовые данные
@@ -83,10 +83,7 @@ public class OrderTest extends BaseTest{
         OrderQuestionPage orderQuestionPage = rentPage.clickOrderButton();
         // Поддтверждаем
         OrderSuccessPage orderSuccessPage = orderQuestionPage.clickYesButton();
-        //  Assert.assertTrue("Не появилось окно 'Заказ не оформлен'", orderSuccessPage.isOrderStatusTextVisible());
-        Assert.assertEquals("Error! Проверьте актуальный результат.", "Заказ оформлен",orderSuccessPage.getTitle());
+        //  Assert.assertTrue("Не появилось окно 'Заказ оформлен'", orderSuccessPage.isOrderStatusTextVisible());
+        Assert.assertEquals("Не появилось окно 'Заказ оформлен'", "Заказ оформлен",orderSuccessPage.getTitle());
     }
-
-
-
 }
